@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cocomong</title>
+    <style>
+        @import url(css/reset.css);
+        #logo{width: 242px; height: 130px; margin: 50px auto; cursor: pointer;}
+        #list{width: 900px; height: 230px; margin: 50px auto; display: flex;}
+        #list li{justify-content: center; align-items: center; width: 150px; height: 230px; cursor: pointer; opacity: 1;}
+        #list li.on{opacity: 0.5;}
+    </style>
+    
+</head>
+<body>
+    <br>
+	<div id="wrap">
+        <h1 id = 'logo'><img src="img/coco_logo.png" alt=""></h1>
+            
+        
+    <ul id ="list">
+        <li class="list"><img src="img/image_01.png" alt=""></li>
+        <li class="list"><img src="img/image_02.png" alt=""></li>
+        <li class="list"><img src="img/image_03.png" alt=""></li>
+        <li class="list"><img src="img/image_04.png" alt=""></li>
+        <li class="list"><img src="img/image_05.png" alt=""></li>
+        <li class="list"><img src="img/image_06.png" alt=""></li>
+    </ul>
+    </div>
+
+    <script>
+        //classList.add()
+        //classListremove()
+        //classListtoggle()
+        const logo = document.querySelector('#logo');
+        const list = document.querySelectorAll('.list');
+        const eventFnc = ()=> console.log("클릭");
+
+        logo.addEventListener('click',eventFnc);
+
+        list.forEach((li)=>{
+            li.addEventListener('click', ()=>{li.classList.toggle('on')})})
+    </script>
+</body>
+</html>

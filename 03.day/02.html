@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03day</title>
+    <style>
+        .wrap>#btn{color:red; width: 100px; height: 100px; background-color: black;}
+        .wrap>#btn.on{color:white}
+        .titlestyle{color:white; background-color: violet;}
+        .liststyle{color:blue; background-color: aqua;}
+    </style>
+</head>
+<body>
+    <div class = "wrap">
+        <h1 id="logo">title</h1>
+        <ul class="listbox"> <!-- ul>li*3 -->
+            <li class="list">리스트1</li> <!-- 세줄한번에 쓰기 ctrl+alt+shift -->
+            <li class="list">리스트2</li>
+            <li class="list">리스트3</li>
+        </ul>
+
+        <button id="btn">버튼</button>
+    </div>
+
+    <script>
+        // document.querySelector('#logo').style.backgroundColor = "#abc";
+        // document.querySelector('#logo').style.color = "#fff";
+        // title.style.backgroundColor = "#acd";
+        // title.style.color = '#fff';
+        const title = document.querySelector('#logo');
+        title.classList.add('titlestyle');
+
+        const li = document.querySelectorAll('.list');
+        // for(i=0; i<li.length; i++){
+        //     (li[i].classList.add('liststyle'));
+        // }
+
+        // li.forEach((el)=>el.classList.add('liststyle'))
+
+         li.foreach(function(el){
+            el.classList.add('liststyle')
+         });
+    </script>
+</body>
+</html>
