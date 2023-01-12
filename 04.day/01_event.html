@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outerbox{
+            width: 400px;height: 400px;background-color: red;
+            display: flex;align-items: center;justify-content: center;
+            margin: 50px auto
+        }
+        .middlebox{
+            width: 300px;height: 300px;background-color: rgb(255, 191, 0);
+            display: flex;align-items: center;justify-content: center;
+        }
+        .innerbox{
+            width: 200px;height:200px;background-color: rgb(91, 23, 219);
+        }
+    </style>
+</head>
+<body>
+    <div class='outerbox'>
+        <div class='middlebox'>
+            <div class='innerbox'>
+
+            </div>
+        </div>
+    </div>
+    <script>
+       const outerbox = document.querySelector('.outerbox')
+       const middlebox = document.querySelector('.middlebox')
+       const innerbox = document.querySelector('.innerbox')
+
+       outerbox.addEventListener('click',(outerEvent)=>{
+        console.log('outerbox')
+        // console.log(outerEvent.target) //현재 이벤트가 발생한 위치에 있는 element
+       })
+
+       middlebox.addEventListener('click',(outerEvent)=>{
+        console.log('middlebox')
+        outerEvent.stopPropagation() //전파를 막아주는 역할?
+       })
+
+       innerbox.addEventListener('click',(outerEvent)=>{
+        console.log('innerbox')
+        outerEvent.stopPropagation() //전파를 막아주는 역할? ->이걸 쓴다면 본인이 클릭한 것 innerbox만 나오게 된다. 안쓰면 inner를 찍으면 middle outer까지 모두 출력되게 된다.
+        
+       })       
+
+    </script>
+
+    <!-- 특정 요소애서 이벤트가 발생하려면, 이벤트가 DOM 최상위 요소부터 아래로 전파가 된다.
+    이벤트 타겟에 도착해 실행되고 다시 DOM트리 최상의 요소까지 타고 올라간다. 올라가면서 클릭클릭이 되기 때문에 상위 요소들이 클릭이 된다. 
+    그래서 전파를 막아주는 stopPropagation을 사용한다. 이러한 것은 이벤트를 겹치는 경우에만 사용하는데 이러한 경우는 많지 않다.-->
+</body>
+</html>

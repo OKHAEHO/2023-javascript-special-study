@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{height: 50vh; background-color: red;}
+    </style>
+</head>
+<body>
+    <div></div>
+    <a href='#' id='link'> 클릭 </a>
+
+    <input type="checkbox" id='apple'><label for="apple">사과</label>
+   <script>
+        const link = document.querySelector('#link');
+        link.addEventListener('click',(e)=>{
+            console.log(`링크 체크`);
+            e.preventDefault(); //기본값을 방지 a href로 넘어가지않고 기본 script만 실행되도록 해준다
+        })
+   </script>
+</body>
+</html>
