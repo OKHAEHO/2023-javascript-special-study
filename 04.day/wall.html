@@ -33,7 +33,39 @@
   </ul>
 </div>
 <script>
-    
+    const wall = document.querySelector("#wall")
+    const title = document.querySelector('h1')
+    const paperBox = document.querySelector('.list')
+    const paperList = document.querySelectorAll('.list>li')
+
+    paperBox.addEventListener('click',(e)=>{
+      let selectPaper = e.target;
+      // console.log(selectPaper)
+      paperFnc(selectPaper)
+      paperContent(selectPaper.childNodes[0])
+      
+    })
+
+    function paperFnc(selectPaper){
+      paperList.forEach((e)=>{
+        e.classList.remove('on')
+      })
+
+      selectPaper.classList.add('on')
+    }
+
+    const paperContent = (selectPaperChild) =>{
+      let src = selectPaperChild.getAttribute('src')
+      let titleTxt = selectPaperChild.getAttribute('alt')
+      
+      title.innerText = titleTxt;
+
+      wall.style.backgroundImage = `url(${src})`;
+    }
+
+
+
+
 
 </script>
     

@@ -10,7 +10,27 @@
 <body>
   <div class="face"></div>   
   <script>
-      
+      const face = document.querySelector('.face');
+      let leftValue = window.getComputedStyle(face).left;
+      leftValue = parseInt(leftValue);
+      let topValue = window.getComputedStyle(face).top;
+      topValue = parseInt(topValue);
+
+      window.addEventListener('keydown',(e)=>{
+        if(e.keyCode == '37'){
+          leftValue-=30
+          face.style.left = `${leftValue}px`;
+        }else if(e.keyCode=='39'){
+          leftValue+=30
+          face.style.left = `${leftValue}px`;
+        }else if(e.keyCode == '38'){
+          topValue-=30
+          face.style.top = `${topValue}px`;
+        }else if(e.keyCode == '40'){
+          topValue+=30
+          face.style.top = `${topValue}px`;
+        }
+      })
          
   </script>
 </body>

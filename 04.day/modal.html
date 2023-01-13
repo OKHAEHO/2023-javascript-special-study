@@ -14,7 +14,7 @@
         #modal_center{width:580px;height: 380px;border:5px solid #fff;
         position: absolute;left:50%;top:50%;transform: translate(-50%,-50%);}
         #modal_center img{width: 100%;}
-        
+
     </style>
    
 </head>
@@ -29,14 +29,53 @@
     <!--모달창 시작 -->
     <div id="modal_bg">
         <div id="modal_center">
+            <button id="closeBtn">닫기</button>
             <img src="img/gallery/01_img.jpg" id='cngImg'>
         </div>
     </div>
     <!--모달창 끝 -->
 </body>
-
+    
 <script>
-   
+   const modal = document.querySelector('#modal_bg') //dimm윈도우
+   const cngImg = document.querySelector('#cngImg') //모달 안 이미지
+   const imgBox = document.querySelector('.imgbox')
+   const imgList = document.querySelectorAll('imgbox>li')
+   const closeBtn = document.querySelector('#closeBtn')
+   const body = document.querySelector('body')
+
+   imgBox.addEventListener('click', (e)=>{
+    const selected = e.target;
+    console.log(selected)
+    let imgSrc = selected.getAttribute('src');
+    cngImg.setAttribute('src', imgSrc);
+    modal.style.display = 'block'; //모달창의 css 값을 가져와서 block으로 바꾼다
+    })
+
+    //모달이 열린 닫기
+
+    closeBtn.addEventListener('click',(e)=>{
+        
+        modal.style.display = 'none'
+    })
+
+    body.addEventListener('click',(e)=>{
+        const clickSelect = e.target;
+        console.log(clickSelect)
+        let state = window.getComputedStyle(clickSelect).display;
+        console.log(`${clickSelect} : ${state}`)
+        if(state === 'block' && !(clickSelect.closest('#modal_center'))){
+            modal.style.display = 'none'
+        }
+    }) //
+
+
+    // element.closest() 바로 윗 부모를 선택
+    /* modal.addEventListener('click',(e)=>{
+        
+        modal.style.display = 'none'
+    }) */
+
 </script>
 </html>
 
