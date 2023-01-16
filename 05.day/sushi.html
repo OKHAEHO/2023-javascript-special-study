@@ -25,7 +25,7 @@
 <body>
   <div id="imgbox">
       <ul id="list">
-          <li><img src="img/sushi/01.png" alt="장어초밥"></li>
+          <li style ='opacity: 1;'><img src="img/sushi/01.png" alt="장어초밥"></li>
           <li><img src="img/sushi/03.png" alt="연어초밥"></li>
           <li><img src="img/sushi/04.png" alt="기름치"></li>
           <li><img src="img/sushi/05.png" alt="참다랑어"></li>
@@ -37,10 +37,46 @@
   <div id="textbox">
       <a href="#" id="prev">이전</a>
       <a href="#" id="next">이후</a>
-      <h3 id="sushiName">초밥</h3>
+      <h3 id="sushiName">장어초밥</h3>
   </div>
   <script>
-   
+    const listBox = document.querySelector('#list')
+    const listImg = document.querySelectorAll('#list>li')
+    const prev = document.querySelector('#prev')
+    const next = document.querySelector('#next')
+    const title = document.querySelector('#sushiName')
+    
+    const listLength =  listImg.length ;
+    console.log(listLength)
+    let current = 0;
+
+    prev.addEventListener('click',()=>{
+      current--;
+      if(current < 0) current = listLength-1;
+      console.log(current)
+
+      sushiShow(current)
+    })
+
+
+    next.addEventListener('click',()=>{
+      current++;
+      if(current>listLength-1) current = 0 ;
+      console.log(current)  
+
+      sushiShow(current)
+    })
+
+    const sushiShow = (current) =>{
+      listImg.forEach((e)=>{
+        e.style.opacity = 0;
+      })
+
+
+      listImg[current].style.opacity = 1;
+      let sushiNameText = listImg[current].children[0].getAttribute('alt')
+      sushiName.innerText = sushiNameText
+    }
   </script>
 </body>
 </html>

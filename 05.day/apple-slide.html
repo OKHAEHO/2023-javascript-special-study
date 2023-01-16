@@ -24,13 +24,30 @@
     <ul class="list clearfix">
         <li data-index='0'>iPhone</li>
         <li data-index='1'>iPod</li>
-        <li data-index='2'>iPAD</li>
+        <li data-index='2'>iPad</li>
         <li data-index='3'>iMac</li>
     </ul>
     <div class="imglist"><img src="img/slide/item.png" alt="" id='imgSlider'></div>
     <p class="title">Apple</p>
     <script>
-  
+        const listBox = document.querySelector('.list');
+        const list = document.querySelectorAll('.list>li');
+        const title = document.querySelector('.title');
+        const imgSlider = document.querySelector('#imgSlider')
+
+        listBox.addEventListener('click',(e)=>{
+            let selectedItem = e.target;
+            let selectedIndex = selectedItem.dataset.index //데이터값을 가져올 때 dataset or getattribute //selected.getattribute('data-index')
+            let targetPos = -250 * selectedIndex;
+            let selectedText = selectedItem.innerText;
+
+            console.log(targetPos)
+            imgSlider.style.left = `${targetPos}px`;
+            title.innerText = selectedText;
+
+        })
+        
+        
        
     </script>
 </body>

@@ -4,7 +4,7 @@ body{background: url(../img/hero/bg.png) no-repeat fixed;background-size: cover;
 #main{width: 980px;margin: 50px auto}
 /* 스크린 */
 #screen{width: 960px;height:400px;border:2px solid #fff;overflow: hidden;}
-#imgslider{width: 4800px;display: flex;position: relative;}
+#imgSlider{width: 4800px;display: flex;position: relative;transition: left 0.5s;}
 
 /*페이저(인디케이터)아이콘*/
 #icons{width: 950px;margin: auto;height: 190px;display: flex;}

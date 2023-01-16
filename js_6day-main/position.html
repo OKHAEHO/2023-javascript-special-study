@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        @import url(css/reset.css);
+        #outer{width: 400px; height: 400px; background: #f00; margin: 100px auto; position: relative;}
+        #inner{width: 200px; height: 200px; background: #000; position: absolute; top:150px; left:100px}
+        
+    </style>
+  
+</head>
+<body>
+    <div style='height: 1500px;background-color: darkslategray;'></div>
+    <div id="outer">
+        <div id="inner"></div>
+    </div> 
+    <script>
+        const inner = document.querySelector('#inner')
+        const outer = document.querySelector('#outer')
+        const posTop = inner.getBoundingClientRect().top
+        const posLeft = inner.getBoundingClientRect().left
+        const offTop = inner.offsetTop; //css 포지션 정책대로 top,left위치값을 받아온다
+        const scrollValue2 = inner.offsetLeft;
+        
+        
+        scrollValue2.toFixed(2) // 소수점 2자리까지
+        console.log(posTop)
+
+        console.log(offTop)
+
+        console.log(window.scrollY)
+        console.log(window.scrollY)
+
+        function getPosTop(ele){
+            return window.scrollY + ele.getBoundingClientRect().top
+        }
+
+
+
+        const absoluteTop = window.pageYOffset + inner.getBoundingClientRect().top;
+        console.log(absoluteTop)
+
+    /* 
+    
+    
+    getBoundingClientRect().top 뷰포트 위에서부터 대상요소의 상단까지의 값
+    getBoundingClientRect().bottom 뷰포트 위에서부터 대상요소의 하단까지의 값
+    getBoundingClientRect().left 뷰포트 왼쪽에서부터 대상요소의 왼쪽까지의 값
+    getBoundingClientRect().right 뷰포트 왼쪽에서부터 대상요소의 오른쪽까지의 값
+    top, bottom, left, right 
+    
+    대상요소.offsetTop
+    대상요소.offsetLeft
+
+
+    window.scrollY (익스x)
+    window.pageYoffset (익스o)
+
+
+    해당 엘리먼트의 상단 절대 좌표 구하기
+    window.scrolly + element.getBoundingClientRect().top
+    */
+
+    </script>
+</body>
+</html>
+
+
+

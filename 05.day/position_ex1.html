@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+<style>
+
+    /*
+    static 기본 흐름
+    fixed 브라우저 기준으로 위치를 맞춘다
+    absolute 나보다 상위요소 (포지션 값을 가진 상위요소)를 기준으로 위치를 설정한다.
+    relatvie 현재 위치를 기준으로 움직인다. (현자 위치를 기준 0,0)
+    sticky 특정 위치에서 상단에 고정이 된다.
+
+    상단기준 아래로 내려가는게 + 올라가는게 - 오른쪽은 + 왼쪽은 -
+    */
+
+    p{position: fixed; bottom: 50px; right: 200px;}
+    h1{position: relative; left: 100px; top: 100px;}
+    .inner{width: 500px; height: 300px; margin:auto; background-color: orange; }
+    .inner>div{width:80px; height: 80px;}
+</style>
+  </head>
+  <body>
+    <h1>Title Tag</h1>
+    <p>Contents Tag</p>
+
+    <div>Area Grouping Tag1</div>
+    <div>Area Grouping Tag2</div>
+    <div>Area Grouping Tag3</div>
+    <div>Area Grouping Tag4</div>
+    <div>Area Grouping Tag5</div>
+
+    <div class="inner">
+        <div id="box1">1</div>
+        <div id="box2">2</div>
+        <div id="box3">3</div>
+        <div id="box4">4</div>
+    </div>
+
+  </body>
+</html>
