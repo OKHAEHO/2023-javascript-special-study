@@ -1,6 +1,10 @@
 *{margin: 0; padding:0; box-sizing: border-box;}
 ul,li,ol{list-style:none;}
 a{text-decoration: none;color:inherit}
+.container{width: 1200px; margin: auto;}
+#search{width: 360px; height: 40px; padding: 10px; margin-right: 4px;}
+.search-box{display: flex; margin-top: 12px;}
+.search-btn{width: 60px; height: 30px; background-color: #fff; border: 1px solid #999; }
 .head-line{display: flex;  margin-top: 10px; justify-content: center;}
 .head-line img{width: 400px; margin: 0 20px;}
 #gnb-list{
